@@ -12,7 +12,7 @@ keymap.set("n", "-", "<C-x>")
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Tabs
-keymap.set("n", "te", ":tabedit", opts) -- new tab
+keymap.set("n", "te", ":tabedit<Return>", opts) -- new tab
 keymap.set("n", "<Tab>", ":tabnext<Return>", opts) -- go to next tab
 keymap.set("n", "<S-Tab>", ":tabprev<Return>", opts) -- go to prev tab
 
@@ -35,3 +35,29 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- trouble plugin
+vim.keymap.set("n", "<leader>xx", function()
+  require("trouble").toggle()
+end)
+vim.keymap.set("n", "<leader>xw", function()
+  require("trouble").toggle("workspace_diagnostics")
+end)
+vim.keymap.set("n", "<leader>xd", function()
+  require("trouble").toggle("document_diagnostics")
+end)
+vim.keymap.set("n", "<leader>xq", function()
+  require("trouble").toggle("quickfix")
+end)
+vim.keymap.set("n", "<leader>xl", function()
+  require("trouble").toggle("loclist")
+end)
+vim.keymap.set("n", "gR", function()
+  require("trouble").toggle("lsp_references")
+end)
+
+-- todo plugin
+vim.keymap.set("n", "<leader>tq", ":TodoQuickFix<Return>", opts)
+vim.keymap.set("n", "<leader>tl", ":TodoLocList<Return>", opts)
+vim.keymap.set("n", "<leader>tt", ":TodoTrouble<Return>", opts)
+vim.keymap.set("n", "<leader>ts", ":TodoTelescope<Return>", opts)
