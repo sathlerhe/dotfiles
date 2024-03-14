@@ -4,22 +4,24 @@ return {
     name = "rose-pine",
     lazy = true,
     priority = 1000,
-    opts = {
-      transparency = true,
-    },
   },
   {
     "maxmx03/dracula.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      transparency = true,
-    },
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "dracula",
     },
   },
   {
@@ -35,6 +37,17 @@ return {
   },
   {
     "nvim-tree/nvim-web-devicons",
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shellcheck",
+        "shfmt",
+        "flake8",
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
