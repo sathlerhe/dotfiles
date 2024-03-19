@@ -19,6 +19,9 @@ nvim_tree.setup({
     root_folder_modifier = ":t",
     -- These icons are visible when you install web-devicons
   },
+  filters = {
+    hidden = true,
+  },
   diagnostics = {
     enable = true,
     show_on_dirs = true,
