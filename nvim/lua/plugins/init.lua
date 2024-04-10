@@ -49,7 +49,7 @@ return {
       },
     },
   },
-  {'akinsho/git-conflict.nvim', version = "*", config = true},
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -68,6 +68,10 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
       },
     },
   },
@@ -77,8 +81,20 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-      "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "williamboman/mason.nvim",
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+          ensure_installed = {
+            "gopls",
+            "goimports",
+            "gofumpt",
+            "gomodifytags",
+            "impl",
+            "delve",
+          },
+        },
+      },
       {
         "hrsh7th/cmp-nvim-lsp",
         cond = function()
